@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="co-lg-5 col-md-5 col-12">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">HOSPITAL DOCTOR</h5>
+                  <p class="card-text">Doctors Name</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+        </div>
+        <div class="co-lg-5 col-md-5 col-12">
+            <div class=" jumbotron">
+                <h4 class="text-center bg-info text-white">Book Your Slot<h4>  
+                  {% if msg %}
+                  <p class="alert alert-success alert-dismissible fad show" role="alert">{{msg}}</p> 
+                  {% endif %}   
+        <form method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{current_user.email}}" readonly aria-describedby="emailHelp" required placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Full Name</label>
+              <input type="text" class="form-control" name="name" id="exampleInputPassword1" placeholder="Name..">
+            </div>
+            <div class="form-group">
+                <label for="inputState">Gender</label>
+                <select id="inputState" class="form-control" name="gender">
+                  <option selected>Male</option>
+                  <option>Female</option>
+                  <option>Custom</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputState">Slot</label>
+                <select id="inputState" class="form-control" name="slot">
+                  <option selected>Day</option>
+                  <option>Night</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Time</label>
+                <input type="time" class="form-control" name="time" id="exampleInputPassword1" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Date</label>
+                <input type="date" class="form-control" name="date" id="exampleInputPassword1" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Disease</label>
+                <input type="text" class="form-control" name="disease" id="exampleInputPassword1" placeholder="Disease..">
+              </div>
+              <div class="form-group">
+                <label for="inputState">Doctors Department</label>
+                <select id="inputState" class="form-control" name="dept">
+                  <option selected>==== Select Dept ====</option>
+                  {% for doct in doct%}
+                  <option>{{doct.dept}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Phone Number</label>
+                <input type="text" class="form-control" name="phone" id="exampleInputPassword1" placeholder="Phone Number..">
+              </div>
+            <button type="submit" class="btn btn-primary btn-lg">Book</button>
+          </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

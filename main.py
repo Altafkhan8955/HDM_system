@@ -22,8 +22,8 @@ login_manager.login_view = 'login'
 
 app.config['MAIL_SERVER'] = 'smtp_gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'zahanaktar322@gmail.com'
-app.config['MAIL_PASSWORD'] = 'lamfbnewbjueowsv'
+app.config['MAIL_USERNAME'] = 'your email'
+app.config['MAIL_PASSWORD'] = 'your password'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -118,7 +118,7 @@ def patient():
         query = Patients(email=email,name=name,gender=gender,slot=slot,disease=disease,time=time,date=date,dept=dept,phone=phone)
         db.session.add(query)
         db.session.commit()
-       # mail.send_message('HOSPITAL MANAGEMENT SYSTEM', sender='zahanaktar322@gmail.com', recipients=[email],
+       # mail.send_message('HOSPITAL MANAGEMENT SYSTEM', sender='your email', recipients=[email],
         #body="Your booking is confirm thank choosing Us ")
         msg = "Booking Cofirmed"
 
